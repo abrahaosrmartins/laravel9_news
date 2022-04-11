@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Restaurant extends Model
 {
@@ -59,5 +60,15 @@ class Restaurant extends Model
             get: fn ($value) => strtoupper($value),
             set: fn ($value) => $value . ' ok',
         );
+    }
+
+    /**
+     * Set relationships with Menus
+     *
+     * @return HasMany
+     */
+    public function menus(): HasMany
+    {
+        return $this->hasMany(Menu::class);
     }
 }
