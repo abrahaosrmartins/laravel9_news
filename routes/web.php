@@ -36,3 +36,28 @@ Route::controller(RestaurantController::class)
         Route::get('/', [RestaurantController::class, 'index'])->name('index');
         Route::get('/create', [RestaurantController::class, 'create'])->name('create');
     });
+
+
+// ------------------------------- Route model binding -----------------------------------
+
+/*
+ * Passando o parâmetro dinâmico na rota, o Laravel procura automaticamente pelo id daquele objeto,
+ */
+//Route::get('/restaurants/{restaurant}/menus/{menu}', function(Restaurant $restaurant, Menu $menu){
+//    dd($menu);
+//});
+
+/*
+ * Mas ele não pega o menu certo do restaurante certo. Teríamos que passar o escopo "id" no parametro dinamico
+ */
+//Route::get('/restaurants/{restaurant}/menus/{menu:id}', function(Restaurant $restaurant, Menu $menu){
+//    dd($menu);
+//});
+
+/*
+ * No Laravel 9, apenas adicionamos o método scopeBindings() e tudo está resolvido.
+ * Garantimos que o menu que vai ser passado pertence ao restaurante passado
+ */
+//Route::get('/restaurants/{restaurant}/menus/{menu:id}', function (Restaurant $restaurant, Menu $menu) {
+//    dd($menu);
+//})->scopeBindings();
