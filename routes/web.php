@@ -18,12 +18,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Routes from same controller, that, for some reason, you don't want to use resource:
-// 8.x version: Still supported
-//Route::get('/restaurants', [RestaurantController::class, 'index'])->name('restaurants.index');
-//Route::get('/restaurants/create', [RestaurantController::class, 'create'])->name('restaurants.create');
+/*
+ Routes de um mesmo controller que, por algum motivo, não usam resources
+ Sintaxe separada:
+ Route::get('/restaurants', [RestaurantController::class, 'index'])->name('restaurants.index');
+ Route::get('/restaurants/create', [RestaurantController::class, 'create'])->name('restaurants.create');
+*/
 
-//: 9.x version:
+
+/*
+ * Versão 9.x:
+ */
 Route::controller(RestaurantController::class)
     ->prefix('restaurants')
     ->name('restaurants')
