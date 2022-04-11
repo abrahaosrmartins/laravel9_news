@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\RestaurantController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,17 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+// Routes from same controller, that, for some reason, you don't want to use resource:
+// 8.x version: Still supported
+//Route::get('/restaurants', [RestaurantController::class, 'index'])->name('restaurants.index');
+//Route::get('/restaurants/create', [RestaurantController::class, 'create'])->name('restaurants.create');
+
+//: 9.x version:
+Route::controller(RestaurantController::class)
+    ->prefix('restaurants')
+    ->name('restaurants')
+    ->group(function (){
+        Route::get('/', [RestaurantController::class, 'index'])->name('index');
+        Route::get('/create', [RestaurantController::class, 'create'])->name('create');
+    });
