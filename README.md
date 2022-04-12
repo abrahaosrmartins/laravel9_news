@@ -1,9 +1,14 @@
 ## Breaking changes
-- Route::controller -> encapsula rotas de um mesmo controller
-- Migrations agora são classes anônimas.
-- Pasta ```lang``` agora está fora de ```resources```
-- Nova sintaxe para Accessors e Mutators
-- Route-model binding - método ```scopeBindings()```
+- `Route::controller` -> encapsula rotas de um mesmo _controller_.
+- _Migrations_ agora são classes anônimas.
+- Pasta ```lang``` agora está fora de ```resources```.
+- Nova sintaxe para _Accessors_ e _Mutators_.
+- _Route-model binding_ - método ```scopeBindings()```.
+- _Blade render_ nas rotas.
+  - _Component_ render também.
+- Atalho de ```$slot``` nas _Tag Blade Components_.
+- Inclusão do _Bootstrap 5_ na interface do _paginator_.
+- Novas diretivas do blade `@checked` e `@selected` para formulários.
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
