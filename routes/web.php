@@ -3,6 +3,7 @@
 use App\Http\Controllers\RestaurantController;
 use App\Models\Menu;
 use App\Models\Restaurant;
+use App\View\Components\RestaurantList;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Route;
 
@@ -77,3 +78,4 @@ Route::controller(RestaurantController::class)
  * Se quiséssemos fazer isso antes, teríamos que criar uma view específica pra isso, passar os parâmetros dinâmicos nela, etc...
  */
 Route::get('/blade', fn () => Blade::render('Olá, {{ $name }}', ['name' => 'Test Name']));
+Route::get('/blade_component', fn() => Blade::renderComponent(new RestaurantList(new Restaurant())));
