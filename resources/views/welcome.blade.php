@@ -35,6 +35,18 @@
                     @endauth
                 </div>
             @endif
+            
+            <div class="w-full block">
+                <x-restaurant-list>
+                    {{-- slot nomeado - laravel 7+--}}
+                    {{--<x-slot name="title">Restaurantes</x-slot>--}}
+    
+                    {{-- slot nomeado - laravel 9--}}
+                    <x-slot:title>Restaurantes</x-slot:title>
+                    
+                    Conteúdo não nomeado que vai automaticamente para a variável $slot
+                </x-restaurant-list>
+            </div>
 
             <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
                 <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
